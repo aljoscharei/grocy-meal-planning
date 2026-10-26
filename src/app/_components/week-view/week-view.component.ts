@@ -48,12 +48,10 @@ export class WeekViewComponent implements OnChanges {
   }
 
   private updateWeeks(): void {
-    const firstWeek = this.currentWeekStart;
-    const secondWeek = this.currentWeekStart.add(1, 'week');
-    this.weeks = [
-      { weekStart: firstWeek, weekNumber: firstWeek.isoWeek(), startDate: firstWeek.toDate(), endDate: firstWeek.add(6, 'day').toDate() },
-      { weekStart: secondWeek, weekNumber: secondWeek.isoWeek(), startDate: secondWeek.toDate(), endDate: secondWeek.add(6, 'day').toDate() }
-    ];
+    this.weeks = Array.from({ length: 4 }, (_, i) => {
+      const w = this.currentWeekStart.add(i, 'week');
+      return { weekStart: w, weekNumber: w.isoWeek(), startDate: w.toDate(), endDate: w.add(6, 'day').toDate() };
+    });
   }
 
   getMealsForDay(day: Date): Partial<Meal>[] {

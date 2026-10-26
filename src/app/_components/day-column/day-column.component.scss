@@ -7,3 +7,9 @@
         flex: 1 1 0%;
     }
 }
+
+.drag-over-day {
+    outline: 2px dashed rgba(99, 102, 241, 0.6);
+    outline-offset: -2px;
+    background-color: rgba(99, 102, 241, 0.05);
+}
